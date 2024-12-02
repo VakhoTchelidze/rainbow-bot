@@ -1,3 +1,4 @@
+from dis import RETURN_CONST
 from os import abort
 from time import sleep
 
@@ -16,7 +17,6 @@ pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tessera
 
 serial_port_cor = (1105,329)
 timx, timy = 497,447
-prev_text = ''
 comx, comy = 832,355
 
 def get_window(title='RAINBOW 3.23.01.0'):
@@ -24,6 +24,22 @@ def get_window(title='RAINBOW 3.23.01.0'):
     time.sleep(1)
     window.activate()
     return window
+
+def minimize_vcom_app():
+    window = pyautogui.getWindowsWithTitle('USR-VCOM Virtual Serial Port')[0]
+    time.sleep(1)
+    window.activate()
+    pyautogui.keyDown('alt');
+    pyautogui.keyDown('space');
+    pyautogui.press('N');
+    pyautogui.keyUp('alt');
+    pyautogui.keyUp('space');
+
+def run_vcom_app():
+    app_path = r"C:\Program Files (x86)\USR-VCOM\USR-VCOM.exe"
+    os.startfile(app_path, "runas")
+    time.sleep(3)
+    os.startfile(app_path, "runas")
 
 def runapp():
     app_path = r"C:\RAINBOW\Rainbow Monitoring 3.23\RAINBOW.exe"
@@ -62,7 +78,7 @@ def press_setting_button():
 def choose_port_field(num=1):
     pyautogui.click(serial_port_cor)
     for i in range(num):
-        time.sleep(0.15)
+        # time.sleep(0.15)
         pyautogui.press('down')
     pyautogui.press('tab')
     for i in range(num):
@@ -125,57 +141,17 @@ def time_extractor():
     return extracted_text
 
 def abort_detection():
-    pass
-
-def com_extractor():
-    screenshot = pyautogui.screenshot()
-    cropped_image = screenshot.crop((comx - 2, comy - 2, comx + 165, comx - 440))
-    grayscale_image = cropped_image.convert('L')
-    sharpness_enhancer = ImageEnhance.Sharpness(grayscale_image)
-    sharpened_image = sharpness_enhancer.enhance(2)
-    contrast_enhancer = ImageEnhance.Contrast(sharpened_image)
-    enhanced_image = contrast_enhancer.enhance(1.5)
-    enhanced_image.save('img.png')
-    custom_config = r'--psm 6 -c tessedit_char_whitelist=0123456789COMcom'
-    extracted_text = pytesseract.image_to_string(enhanced_image, config=custom_config).strip()
-
-    return extracted_text
-
-#running the program
-start()
-
-#main loop for
-for i in range(1,20):
-
-    #clickebis raodenoba aka numeracia siashi
-    n_click = i
-
-    #es irchevs modems
-    press_setting_button()
-    choose_port_field(i)
-    press_save_button()
-
-    # aqoneqtebs modems
-    press_connect_button()
-    com = com_extractor()
-
-    #amowmebs amoagdo tu ara da abrunebs statuss
-    con_status = alert_check()
-    # print(con_status)
-    time.sleep(0.5)
-
-    # reportis view gamoaqvs
-    press_show_button()
-    time.sleep(5)
-
-    # es amowmebs abortzea tu ara tu abortzea nishnavs rom wvis info arasworia da an ar gvaqvs
     try:
         pyautogui.locateOnScreen('images/abort_identificator.png')
-        tu =True
+        tu = True
         fuel = '-'
+        screenshot = pyautogui.screenshot()
+        time_screen = screenshot.crop((473, 425, 872, 485))
     except:
-        tu =False
-
+        tu = False
+        fuel = '-'
+        screenshot = pyautogui.screenshot()
+        time_screen = screenshot.crop((473, 425, 872, 485))
 
     if tu:
         try:
@@ -189,27 +165,161 @@ for i in range(1,20):
     else:
         pass
 
-    time.sleep(20)
-    #reportis windows ro gaxsnis mere drois
-    text = time_extractor()
-    if text == prev_text:
-        fuel = '-'
-        # comment = 'Invalid Time Info'
-    else:
-        fuel = text
-        # comment = 'Valid'
-    prev_text = text
+    return fuel, time_screen
 
+def com_extractor():
+    screenshot = pyautogui.screenshot()
+    cropped_image = screenshot.crop((comx - 2, comy - 2, comx + 165, comx - 440))
+    grayscale_image = cropped_image.convert('L')
+    sharpness_enhancer = ImageEnhance.Sharpness(grayscale_image)
+    sharpened_image = sharpness_enhancer.enhance(2)
+    contrast_enhancer = ImageEnhance.Contrast(sharpened_image)
+    enhanced_image = contrast_enhancer.enhance(1.5)
+    custom_config = r'--psm 6 -c tessedit_char_whitelist=0123456789COMcom'
+    extracted_text = pytesseract.image_to_string(enhanced_image, config=custom_config).strip()
 
+    return extracted_text
+
+def close_program():
     try:
-        window = pyautogui.getWindowsWithTitle('Model 307-MPU')[0]
-        pyautogui.keyDown('alt'); pyautogui.press('f4'); pyautogui.keyUp('alt');
-        time.sleep(1)
-        print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}')
+        pyautogui.click('images\\disconnect_button.png')
+        get_window()
+        pyautogui.keyDown('alt');
+        pyautogui.press('f4');
+        pyautogui.keyUp('alt');
     except:
-        fuel = '-'
-        print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}')
-        start()
+        pass
+
+def create_df():
+    df = pd.DataFrame(columns=["Number/Click", "Time", "Connection Status", "COM"])
+    return df
+
+def main():
+    df = create_df()
+
+    #start vcom app
+    run_vcom_app()
+
+    time.sleep(1)
+    vcom_window = pyautogui.getWindowsWithTitle('USR-VCOM Virtual Serial Port')[0]
+    vcom_window.activate()
+
+    time.sleep(120)
+
+    pyautogui.keyDown('alt');
+    pyautogui.keyDown('space');
+    pyautogui.press('N');
+    pyautogui.keyUp('alt');
+    pyautogui.keyUp('space');
+
+    time.sleep(3)
+
+    #running the program
+    start()
+
+    #main loop for
+    prev_text = ''
+    time_eff_count=1
+    last_com = ''
+    com = '  '
+    for i in range(1,1000):
+        last_com = com
+        #clickebis raodenoba aka numeracia siashi
+        n_click = i
+
+        #es irchevs modems
+        press_setting_button()
+        choose_port_field(i)
+        press_save_button()
+
+        # aqoneqtebs modems
+        press_connect_button()
+        com = com_extractor()
+
+        #amowmebs amoagdo tu ara da abrunebs statuss
+        con_status = alert_check()
+        # print(con_status)
+        time.sleep(0.5)
+
+        # reportis view gamoaqvs
+        press_show_button()
+        time.sleep(5)
+        screenshot = pyautogui.screenshot()
+        cropped_image = screenshot.crop((473, 425, 872, 485))
+
+        if 'not' in con_status.lower():
+            pass
+        else:
+            # es amowmebs abortzea tu ara tu abortzea nishnavs rom wvis info arasworia da an ar gvaqvs
+            fuel, time_screen = abort_detection()
+
+            if time_eff_count == 1:
+                time_eff_count=0
+                n = 0
+                while n <= 10:
+                    try:
+                        pyautogui.locateOnScreen(time_screen)
+                        time.sleep(3)
+                        n += 1
+                    except:
+                        break
+            else:
+                n = 0
+                while n <= 10:
+                    try:
+                        pyautogui.locateOnScreen(prev_screen)
+                        time.sleep(3)
+                        n += 1
+                    except:
+                        break
+
+                prev_screen = time_screen
+
+        time.sleep(2)
+
+        #reportis windows ro gaxsnis mere drois
+        text = time_extractor()
+
+        if text == prev_text:
+            fuel = '-'
+            # comment = 'Invalid Time Info'
+        else:
+            fuel = text
+            # comment = 'Valid'
+        prev_text = text
+
+
+        try:
+            window = pyautogui.getWindowsWithTitle('Model 307-MPU')[0]
+            pyautogui.keyDown('alt'); pyautogui.press('f4'); pyautogui.keyUp('alt');
+            time.sleep(1)
+            print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}')
+
+        except:
+            fuel = '-'
+            print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}')
+
+        if com == last_com:
+            close_program()
+            today_date = datetime.now().strftime("%Y-%m-%d")
+            filename = f"csvs/da1ta_{today_date}.csv"
+            df.to_csv(filename, index=True)
+            break
+        else:
+            df.loc[len(df)] = [i, fuel, con_status, com]
+            continue
+
+
+
+if __name__ == "__main__":
+    start_time = time.time()
+    main()
+    end_time = time.time()
+    time_exc = end_time-start_time
+    print(time_exc)
+
+
+
 
 
 

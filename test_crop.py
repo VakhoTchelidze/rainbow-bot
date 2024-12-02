@@ -39,15 +39,22 @@ pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tessera
 # print(text)
 
 time.sleep(3)
-comx, comy = 832,355
-screenshot = pyautogui.screenshot()
-cropped_image = screenshot.crop((comx-2, comy-2, comx+165, comx-440))
-grayscale_image = cropped_image.convert('L')
-sharpness_enhancer = ImageEnhance.Sharpness(grayscale_image)
-sharpened_image = sharpness_enhancer.enhance(2)
-contrast_enhancer = ImageEnhance.Contrast(sharpened_image)
-enhanced_image = contrast_enhancer.enhance(1.5)
-enhanced_image.save('img.png')
-custom_config = r'--psm 6 -c tessedit_char_whitelist=0123456789COMcom'
-extracted_text = pytesseract.image_to_string(enhanced_image, config=custom_config).strip()
-print(extracted_text)
+# comx, comy = 832,355
+# screenshot = pyautogui.screenshot()
+# cropped_image = screenshot.crop((comx-2, comy-2, comx+165, comx-440))
+# grayscale_image = cropped_image.convert('L')
+# sharpness_enhancer = ImageEnhance.Sharpness(grayscale_image)
+# sharpened_image = sharpness_enhancer.enhance(2)
+# contrast_enhancer = ImageEnhance.Contrast(sharpened_image)
+# enhanced_image = contrast_enhancer.enhance(1.5)
+# enhanced_image.save('disconnect_button.png')
+# custom_config = r'--psm 6 -c tessedit_char_whitelist=0123456789COMcom'
+# extracted_text = pytesseract.image_to_string(enhanced_image, config=custom_config).strip()
+# print(extracted_text)
+# [473,425,872,485]
+# screenshot = pyautogui.screenshot()
+# cropped_image = screenshot.crop((473,425,872,485))
+# cropped_image.save('screen.png')
+
+for i in pyautogui.getAllWindows():
+    print(i.title)
