@@ -191,8 +191,28 @@ def close_program():
         pass
 
 def create_df():
-    df = pd.DataFrame(columns=["Number/Click", "Time", "Connection Status", "COM"])
+    df = pd.DataFrame(columns=["Number/Click", "Time", "Connection Status", "COM","Voltage"])
     return df
+
+def clean_time(value):
+    try:
+        return str(int(float(value)))
+    except ValueError:
+        return value
+
+def voltage_extractor():
+    screenshot = pyautogui.screenshot()
+    cropped_image = screenshot.crop((1040, 873, 1120, 895))
+    # cropped_image.save('voltage.png')
+    grayscale_image = cropped_image.convert('L')
+    sharpness_enhancer = ImageEnhance.Sharpness(grayscale_image)
+    sharpened_image = sharpness_enhancer.enhance(2)
+    contrast_enhancer = ImageEnhance.Contrast(sharpened_image)
+    enhanced_image = contrast_enhancer.enhance(1.5)
+    custom_config = r'--psm 6 -c tessedit_char_whitelist=0123456789.V'
+    extracted_text = pytesseract.image_to_string(enhanced_image, config=custom_config).strip()
+
+    return extracted_text
 
 def main():
     df = create_df()
@@ -222,7 +242,9 @@ def main():
     time_eff_count=1
     last_com = ''
     com = '  '
-    for i in range(1,1000):
+
+    last_num = 5
+    for i in range(1,last_num):
         last_com = com
         #clickebis raodenoba aka numeracia siashi
         n_click = i
@@ -279,12 +301,15 @@ def main():
 
         #reportis windows ro gaxsnis mere drois
         text = time_extractor()
+        volt = voltage_extractor()
 
         if text == prev_text:
             fuel = '-'
+            voltage = '-'
             # comment = 'Invalid Time Info'
         else:
             fuel = text
+            voltage = volt
             # comment = 'Valid'
         prev_text = text
 
@@ -293,21 +318,32 @@ def main():
             window = pyautogui.getWindowsWithTitle('Model 307-MPU')[0]
             pyautogui.keyDown('alt'); pyautogui.press('f4'); pyautogui.keyUp('alt');
             time.sleep(1)
-            print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}')
+            print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}, Voltage: {voltage}')
 
         except:
             fuel = '-'
-            print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}')
+            print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}, Voltage: {voltage}')
 
         if com == last_com:
             close_program()
             today_date = datetime.now().strftime("%Y-%m-%d")
-            filename = f"csvs/da1ta_{today_date}.csv"
+            filename = f"csvs/data_{today_date}.csv"
+            df['COM'] = df['COM'].str.extract(r'(\d+)', expand=False)
+            df['Time'] = df['Time'].apply(clean_time)
             df.to_csv(filename, index=True)
+
             break
         else:
-            df.loc[len(df)] = [i, fuel, con_status, com]
-            continue
+            df.loc[len(df)] = [i, fuel, con_status, com, voltage]
+            if i == last_num-1:
+                close_program()
+                df['COM'] = df['COM'].str.extract(r'(\d+)', expand=False)
+                df['Time'] = df['Time'].apply(clean_time)
+                today_date = datetime.now().strftime("%Y-%m-%d")
+                filename = f"csvs/data_{today_date}.csv"
+                df.to_csv(filename, index=True)
+            else:
+                continue
 
 
 
