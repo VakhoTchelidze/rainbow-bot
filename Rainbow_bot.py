@@ -145,11 +145,13 @@ def abort_detection():
         pyautogui.locateOnScreen('images/abort_identificator.png')
         tu = True
         fuel = '-'
+        voltage = '-'
         screenshot = pyautogui.screenshot()
         time_screen = screenshot.crop((473, 425, 872, 485))
     except:
         tu = False
         fuel = '-'
+        voltage = '-'
         screenshot = pyautogui.screenshot()
         time_screen = screenshot.crop((473, 425, 872, 485))
 
@@ -165,7 +167,7 @@ def abort_detection():
     else:
         pass
 
-    return fuel, time_screen
+    return voltage, fuel, time_screen
 
 def com_extractor():
     screenshot = pyautogui.screenshot()
@@ -243,7 +245,10 @@ def main():
     last_com = ''
     com = '  '
 
-    last_num = 5
+
+    last_num = 1000
+    data_file_text_ex = ''
+
     for i in range(1,last_num):
         last_com = com
         #clickebis raodenoba aka numeracia siashi
@@ -268,12 +273,11 @@ def main():
         time.sleep(5)
         screenshot = pyautogui.screenshot()
         cropped_image = screenshot.crop((473, 425, 872, 485))
-
         if 'not' in con_status.lower():
             pass
         else:
             # es amowmebs abortzea tu ara tu abortzea nishnavs rom wvis info arasworia da an ar gvaqvs
-            fuel, time_screen = abort_detection()
+            voltage, fuel, time_screen = abort_detection()
 
             if time_eff_count == 1:
                 time_eff_count=0
@@ -322,12 +326,13 @@ def main():
 
         except:
             fuel = '-'
+            voltage = '-'
             print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}, Voltage: {voltage}')
 
         if com == last_com:
             close_program()
             today_date = datetime.now().strftime("%Y-%m-%d")
-            filename = f"csvs/data_{today_date}.csv"
+            filename = f"csvs/{data_file_text_ex}data_{today_date}.csv"
             df['COM'] = df['COM'].str.extract(r'(\d+)', expand=False)
             df['Time'] = df['Time'].apply(clean_time)
             df.to_csv(filename, index=True)
@@ -340,7 +345,7 @@ def main():
                 df['COM'] = df['COM'].str.extract(r'(\d+)', expand=False)
                 df['Time'] = df['Time'].apply(clean_time)
                 today_date = datetime.now().strftime("%Y-%m-%d")
-                filename = f"csvs/data_{today_date}.csv"
+                filename = f"csvs/{data_file_text_ex}data_{today_date}.csv"
                 df.to_csv(filename, index=True)
             else:
                 continue
