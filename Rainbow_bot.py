@@ -82,7 +82,7 @@ def choose_port_field(num=1):
         pyautogui.press('down')
     pyautogui.press('tab')
     for i in range(num):
-        pyautogui.press('c')
+        pyautogui.press('down')
     time.sleep(0.5)
 
 def press_connect_button():
@@ -146,12 +146,18 @@ def abort_detection():
         tu = True
         fuel = '-'
         voltage = '-'
+        city_v1,city_v2,city_v3 = '-','-','-'
+        generator_v1, generator_v2, generator_v3 = '-','-','-'
+        alarm = '-'
         screenshot = pyautogui.screenshot()
         time_screen = screenshot.crop((473, 425, 872, 485))
     except:
         tu = False
         fuel = '-'
         voltage = '-'
+        city_v1, city_v2, city_v3 = '-', '-', '-'
+        generator_v1, generator_v2, generator_v3 = '-', '-', '-'
+        alarm = '-'
         screenshot = pyautogui.screenshot()
         time_screen = screenshot.crop((473, 425, 872, 485))
 
@@ -167,7 +173,7 @@ def abort_detection():
     else:
         pass
 
-    return voltage, fuel, time_screen
+    return voltage, fuel, time_screen, city_v1, city_v2, city_v3,generator_v1, generator_v2, generator_v3, alarm
 
 def com_extractor():
     screenshot = pyautogui.screenshot()
@@ -193,7 +199,7 @@ def close_program():
         pass
 
 def create_df():
-    df = pd.DataFrame(columns=["Number/Click", "Time", "Connection Status", "COM","Voltage"])
+    df = pd.DataFrame(columns=["Number/Click", "Time", "Connection Status", "COM","Voltage","City_Volt_1","City_Volt_2","City_Volt_3","Gen_Volt_1","Gen_Volt_2","Gen_Volt_3","Alarm"])
     return df
 
 def clean_time(value):
@@ -209,11 +215,75 @@ def voltage_extractor():
     grayscale_image = cropped_image.convert('L')
     sharpness_enhancer = ImageEnhance.Sharpness(grayscale_image)
     sharpened_image = sharpness_enhancer.enhance(2)
-    contrast_enhancer = ImageEnhance.Contrast(sharpened_image)
-    enhanced_image = contrast_enhancer.enhance(1.5)
+    # contrast_enhancer = ImageEnhance.Contrast(sharpened_image)
+    # enhanced_image = contrast_enhancer.enhance(1.5)
     custom_config = r'--psm 6 -c tessedit_char_whitelist=0123456789.V'
-    extracted_text = pytesseract.image_to_string(enhanced_image, config=custom_config).strip()
+    extracted_text = pytesseract.image_to_string(sharpened_image, config=custom_config).strip()
 
+    return extracted_text
+
+def city_volt_extractor():
+    city_volt_1 = (43, 215, 123, 237)
+    city_volt_2 = (194, 215, 274, 237)
+    city_volt_3 = (345, 215, 425, 237)
+
+    screenshot = pyautogui.screenshot()
+    cropped_image_1 = screenshot.crop(city_volt_1)
+    grayscale_image_1 = cropped_image_1.convert('L')
+    sharpness_enhancer_1 = ImageEnhance.Sharpness(grayscale_image_1)
+    sharpened_image_1 = sharpness_enhancer_1.enhance(2)
+    # cropped_image_1.save('city1.png')
+    cropped_image_2 = screenshot.crop(city_volt_2)
+    grayscale_image_2 = cropped_image_2.convert('L')
+    sharpness_enhancer_2 = ImageEnhance.Sharpness(grayscale_image_2)
+    sharpened_image_2 = sharpness_enhancer_2.enhance(2)
+    # cropped_image_2.save('city2.png')
+    cropped_image_3 = screenshot.crop(city_volt_3)
+    grayscale_image_3 = cropped_image_3.convert('L')
+    sharpness_enhancer_3 = ImageEnhance.Sharpness(grayscale_image_3)
+    sharpened_image_3 = sharpness_enhancer_3.enhance(2)
+    # cropped_image_3.save('city3.png')
+
+    custom_config = r'--psm 6 -c tessedit_char_whitelist=0123456789.V'
+    city_1_text = pytesseract.image_to_string(sharpened_image_1, config=custom_config).strip()
+    city_2_text = pytesseract.image_to_string(sharpened_image_2, config=custom_config).strip()
+    city_3_text = pytesseract.image_to_string(sharpened_image_3, config=custom_config).strip()
+
+    return city_1_text, city_2_text,city_3_text
+
+def generator_volt_extractor():
+    generator_volt_1 = (925, 215, 1005, 237)
+    generator_volt_2 = (1082, 215, 1162, 237)
+    generator_volt_3 = (1232, 215, 1312, 237)
+
+    screenshot = pyautogui.screenshot()
+    cropped_image_1 = screenshot.crop(generator_volt_1)
+    grayscale_image_1 = cropped_image_1.convert('L')
+    sharpness_enhancer_1 = ImageEnhance.Sharpness(grayscale_image_1)
+    sharpened_image_1 = sharpness_enhancer_1.enhance(2)
+    cropped_image_2 = screenshot.crop(generator_volt_2)
+    grayscale_image_2 = cropped_image_2.convert('L')
+    sharpness_enhancer_2 = ImageEnhance.Sharpness(grayscale_image_2)
+    sharpened_image_2 = sharpness_enhancer_2.enhance(2)
+    cropped_image_3 = screenshot.crop(generator_volt_3)
+    grayscale_image_3 = cropped_image_3.convert('L')
+    sharpness_enhancer_3 = ImageEnhance.Sharpness(grayscale_image_3)
+    sharpened_image_3 = sharpness_enhancer_3.enhance(2)
+
+    custom_config = r'--psm 6 -c tessedit_char_whitelist=0123456789.V'
+    generator_1_text = pytesseract.image_to_string(sharpened_image_1, config=custom_config).strip()
+    generator_2_text = pytesseract.image_to_string(sharpened_image_2, config=custom_config).strip()
+    generator_3_text = pytesseract.image_to_string(sharpened_image_3, config=custom_config).strip()
+
+    return generator_1_text, generator_2_text,generator_3_text
+
+def alarm_extractor():
+    screenshot = pyautogui.screenshot()
+    cropped_image = screenshot.crop((499, 300, 827, 380))
+    grayscale_image = cropped_image.convert('L')
+    sharpness_enhancer = ImageEnhance.Sharpness(grayscale_image)
+    sharpened_image = sharpness_enhancer.enhance(2)
+    extracted_text = pytesseract.image_to_string(sharpened_image).strip()
     return extracted_text
 
 def main():
@@ -277,7 +347,7 @@ def main():
             pass
         else:
             # es amowmebs abortzea tu ara tu abortzea nishnavs rom wvis info arasworia da an ar gvaqvs
-            voltage, fuel, time_screen = abort_detection()
+            voltage, fuel, time_screen, city_v1_text, city_v2_text, city_v3_text, generator_v1_text, generator_v2_text, generator_v3_text, alarm_text = abort_detection()
 
             if time_eff_count == 1:
                 time_eff_count=0
@@ -306,14 +376,23 @@ def main():
         #reportis windows ro gaxsnis mere drois
         text = time_extractor()
         volt = voltage_extractor()
+        city_v1, city_v2, city_v3 = city_volt_extractor()
+        generator_v1, generator_v2, generator_v3 = generator_volt_extractor()
+        alarm = alarm_extractor()
 
         if text == prev_text:
             fuel = '-'
             voltage = '-'
+            city_v1_text, city_v2_text, city_v3_text = '-', '-', '-'
+            generator_v1_text, generator_v2_text, generator_v3_text = '-', '-', '-'
+            alarm_text = '-'
             # comment = 'Invalid Time Info'
         else:
             fuel = text
             voltage = volt
+            city_v1_text, city_v2_text, city_v3_text = city_v1, city_v2, city_v3
+            generator_v1_text, generator_v2_text, generator_v3_text = generator_v1, generator_v2, generator_v3
+            alarm_text = alarm
             # comment = 'Valid'
         prev_text = text
 
@@ -322,12 +401,15 @@ def main():
             window = pyautogui.getWindowsWithTitle('Model 307-MPU')[0]
             pyautogui.keyDown('alt'); pyautogui.press('f4'); pyautogui.keyUp('alt');
             time.sleep(1)
-            print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}, Voltage: {voltage}')
+            print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}, Voltage: {voltage}, City V1: {city_v1_text}, City V2: {city_v2_text}, City V3: {city_v2_text}, Generator V1: {generator_v1_text}, Generator V2: {generator_v2_text}, Generator V3: {generator_v3_text}, Alarm: {alarm_text}')
 
         except:
             fuel = '-'
             voltage = '-'
-            print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}, Voltage: {voltage}')
+            city_v1_text, city_v2_text, city_v3_text = '-', '-', '-'
+            generator_v1_text, generator_v2_text, generator_v3_text = '-', '-', '-'
+            alarm_text = '-'
+            print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}, Voltage: {voltage}, City V1: {city_v1_text}, City V2: {city_v2_text}, City V3: {city_v2_text}, Generator V1: {generator_v1_text}, Generator V2: {generator_v2_text}, Generator V3: {generator_v3_text}, Alarm: {alarm_text}')
 
         if com == last_com:
             close_program()
@@ -339,7 +421,7 @@ def main():
 
             break
         else:
-            df.loc[len(df)] = [i, fuel, con_status, com, voltage]
+            df.loc[len(df)] = [i, fuel, con_status, com, voltage, city_v1_text, city_v2_text, city_v3_text,generator_v1_text, generator_v2_text, generator_v3_text,alarm_text]
             if i == last_num-1:
                 close_program()
                 df['COM'] = df['COM'].str.extract(r'(\d+)', expand=False)
@@ -349,8 +431,6 @@ def main():
                 df.to_csv(filename, index=True)
             else:
                 continue
-
-
 
 if __name__ == "__main__":
     start_time = time.time()

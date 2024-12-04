@@ -4,7 +4,7 @@ from PIL import Image,ImageEnhance, ImageFilter
 import pyautogui
 import pytesseract
 import pandas as pd
-
+from mouseinfo import screenshot
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 #
@@ -107,17 +107,42 @@ time.sleep(3)
 # for prediction in prediction_groups[0]:  # Single image example
 #     text, box = prediction
 #     print(f"Detected text: {text}, Bounding box: {box}")
-# time.sleep(3)
-# screenshot = Image.open('screenshot.png')
-# screenshot.save('screenshot.png')
-cropped_image = screenshot.crop((1040,873, 1120, 895))
-# cropped_image.save('voltage.png')
+time.sleep(3)
+
+
+# city_volt_1 = (925,215, 1005, 237)
+# city_volt_2 = (1082,215, 1162, 237)
+# city_volt_3 = (1232,215, 1312, 237)
+#
+# screenshot = pyautogui.screenshot()
+# cropped_image_1 = screenshot.crop(city_volt_1)
+# grayscale_image_1 = cropped_image_1.convert('L')
+# sharpness_enhancer_1 = ImageEnhance.Sharpness(grayscale_image_1)
+# sharpened_image_1 = sharpness_enhancer_1.enhance(2)
+# cropped_image_1.save('city1.png')
+# cropped_image_2 = screenshot.crop(city_volt_2)
+# grayscale_image_2 = cropped_image_2.convert('L')
+# sharpness_enhancer_2 = ImageEnhance.Sharpness(grayscale_image_2)
+# sharpened_image_2 = sharpness_enhancer_2.enhance(2)
+# cropped_image_2.save('city2.png')
+# cropped_image_3 = screenshot.crop(city_volt_3)
+# grayscale_image_3 = cropped_image_3.convert('L')
+# sharpness_enhancer_3 = ImageEnhance.Sharpness(grayscale_image_3)
+# sharpened_image_3 = sharpness_enhancer_3.enhance(2)
+# cropped_image_3.save('city3.png')
+#
+# custom_config = r'--psm 6 -c tessedit_char_whitelist=0123456789.V'
+# city_1_text = pytesseract.image_to_string(sharpened_image_1, config=custom_config).strip()
+# city_2_text = pytesseract.image_to_string(sharpened_image_2, config=custom_config).strip()
+# city_3_text = pytesseract.image_to_string(sharpened_image_3, config=custom_config).strip()
+#
+# print(city_1_text,city_2_text,city_3_text)
+
+screenshot = pyautogui.screenshot()
+cropped_image = screenshot.crop((499,300, 827, 380))
 grayscale_image = cropped_image.convert('L')
 sharpness_enhancer = ImageEnhance.Sharpness(grayscale_image)
 sharpened_image = sharpness_enhancer.enhance(2)
-contrast_enhancer = ImageEnhance.Contrast(sharpened_image)
-enhanced_image = contrast_enhancer.enhance(1.5)
-custom_config = r'--psm 6 -c tessedit_char_whitelist=0123456789.V'
-extracted_text = pytesseract.image_to_string(enhanced_image, config=custom_config).strip()
+extracted_text = pytesseract.image_to_string(sharpened_image).strip()
 
 print(extracted_text)
