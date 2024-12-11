@@ -13,6 +13,8 @@ import pytesseract
 import pandas as pd
 from datetime import datetime
 
+
+
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 serial_port_cor = (1105,329)
@@ -149,6 +151,7 @@ def abort_detection():
         city_v1,city_v2,city_v3 = '-','-','-'
         generator_v1, generator_v2, generator_v3 = '-','-','-'
         alarm = '-'
+        condition = '-'
         screenshot = pyautogui.screenshot()
         time_screen = screenshot.crop((473, 425, 872, 485))
     except:
@@ -158,6 +161,7 @@ def abort_detection():
         city_v1, city_v2, city_v3 = '-', '-', '-'
         generator_v1, generator_v2, generator_v3 = '-', '-', '-'
         alarm = '-'
+        condition = '-'
         screenshot = pyautogui.screenshot()
         time_screen = screenshot.crop((473, 425, 872, 485))
 
@@ -173,7 +177,7 @@ def abort_detection():
     else:
         pass
 
-    return voltage, fuel, time_screen, city_v1, city_v2, city_v3,generator_v1, generator_v2, generator_v3, alarm
+    return voltage, fuel, time_screen, city_v1, city_v2, city_v3,generator_v1, generator_v2, generator_v3, alarm,  condition
 
 def com_extractor():
     screenshot = pyautogui.screenshot()
@@ -199,7 +203,7 @@ def close_program():
         pass
 
 def create_df():
-    df = pd.DataFrame(columns=["Number/Click", "Time", "Connection Status", "COM","Voltage","City_Volt_1","City_Volt_2","City_Volt_3","Gen_Volt_1","Gen_Volt_2","Gen_Volt_3","Alarm"])
+    df = pd.DataFrame(columns=["Number/Click", "Time", "Connection Status", "COM","Voltage","City_Volt_1","City_Volt_2","City_Volt_3","Gen_Volt_1","Gen_Volt_2","Gen_Volt_3","Alarm","Condition"])
     return df
 
 def clean_time(value):
@@ -219,6 +223,10 @@ def voltage_extractor():
     # enhanced_image = contrast_enhancer.enhance(1.5)
     custom_config = r'--psm 6 -c tessedit_char_whitelist=0123456789.V'
     extracted_text = pytesseract.image_to_string(sharpened_image, config=custom_config).strip()
+    if '4.4V' in extracted_text or '4V' == extracted_text:
+        extracted_text = '14.4V'
+    else:
+        pass
 
     return extracted_text
 
@@ -284,7 +292,40 @@ def alarm_extractor():
     sharpness_enhancer = ImageEnhance.Sharpness(grayscale_image)
     sharpened_image = sharpness_enhancer.enhance(2)
     extracted_text = pytesseract.image_to_string(sharpened_image).strip()
+    if len(extracted_text) < 10:
+        extracted_text = '-'
+    else:
+        pass
     return extracted_text
+
+def condition_extractor():
+
+    condition = None
+
+    try:
+        pyautogui.locateOnScreen('images\\run.png')
+        condition = 'run'
+    except:
+        pass
+
+    try:
+        pyautogui.locateOnScreen('images\\stop.png')
+        condition = 'stop'
+    except:
+        pass
+
+    try:
+        pyautogui.locateOnScreen('images\\test.png')
+        condition = 'test'
+    except:
+        pass
+
+    if condition != 'test' or condition != 'stop' or condition != 'run':
+        condition = 'auto'
+    else:
+        pass
+
+    return condition
 
 def main():
     df = create_df()
@@ -347,7 +388,7 @@ def main():
             pass
         else:
             # es amowmebs abortzea tu ara tu abortzea nishnavs rom wvis info arasworia da an ar gvaqvs
-            voltage, fuel, time_screen, city_v1_text, city_v2_text, city_v3_text, generator_v1_text, generator_v2_text, generator_v3_text, alarm_text = abort_detection()
+            voltage, fuel, time_screen, city_v1_text, city_v2_text, city_v3_text, generator_v1_text, generator_v2_text, generator_v3_text, alarm_text, condition_text = abort_detection()
 
             if time_eff_count == 1:
                 time_eff_count=0
@@ -375,10 +416,16 @@ def main():
 
         #reportis windows ro gaxsnis mere drois
         text = time_extractor()
-        volt = voltage_extractor()
-        city_v1, city_v2, city_v3 = city_volt_extractor()
-        generator_v1, generator_v2, generator_v3 = generator_volt_extractor()
-        alarm = alarm_extractor()
+
+        # aq dros vzogavt
+        if text == prev_text:
+            pass
+        else:
+            volt = voltage_extractor()
+            city_v1, city_v2, city_v3 = city_volt_extractor()
+            generator_v1, generator_v2, generator_v3 = generator_volt_extractor()
+            alarm = alarm_extractor()
+            condition = condition_extractor()
 
         if text == prev_text:
             fuel = '-'
@@ -386,6 +433,7 @@ def main():
             city_v1_text, city_v2_text, city_v3_text = '-', '-', '-'
             generator_v1_text, generator_v2_text, generator_v3_text = '-', '-', '-'
             alarm_text = '-'
+            condition_text = '-'
             # comment = 'Invalid Time Info'
         else:
             fuel = text
@@ -393,6 +441,7 @@ def main():
             city_v1_text, city_v2_text, city_v3_text = city_v1, city_v2, city_v3
             generator_v1_text, generator_v2_text, generator_v3_text = generator_v1, generator_v2, generator_v3
             alarm_text = alarm
+            condition_text = condition
             # comment = 'Valid'
         prev_text = text
 
@@ -401,7 +450,7 @@ def main():
             window = pyautogui.getWindowsWithTitle('Model 307-MPU')[0]
             pyautogui.keyDown('alt'); pyautogui.press('f4'); pyautogui.keyUp('alt');
             time.sleep(1)
-            print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}, Voltage: {voltage}, City V1: {city_v1_text}, City V2: {city_v2_text}, City V3: {city_v2_text}, Generator V1: {generator_v1_text}, Generator V2: {generator_v2_text}, Generator V3: {generator_v3_text}, Alarm: {alarm_text}')
+            print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}, Voltage: {voltage}, City V1: {city_v1_text}, City V2: {city_v2_text}, City V3: {city_v2_text}, Generator V1: {generator_v1_text}, Generator V2: {generator_v2_text}, Generator V3: {generator_v3_text}, Alarm: {alarm_text}, Condition: {condition_text}')
 
         except:
             fuel = '-'
@@ -409,7 +458,8 @@ def main():
             city_v1_text, city_v2_text, city_v3_text = '-', '-', '-'
             generator_v1_text, generator_v2_text, generator_v3_text = '-', '-', '-'
             alarm_text = '-'
-            print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}, Voltage: {voltage}, City V1: {city_v1_text}, City V2: {city_v2_text}, City V3: {city_v2_text}, Generator V1: {generator_v1_text}, Generator V2: {generator_v2_text}, Generator V3: {generator_v3_text}, Alarm: {alarm_text}')
+            condition_text = '-'
+            print(f'Number/Click: {i}, Time: {fuel}, Connection Status: {con_status}, COM: {com}, Voltage: {voltage}, City V1: {city_v1_text}, City V2: {city_v2_text}, City V3: {city_v2_text}, Generator V1: {generator_v1_text}, Generator V2: {generator_v2_text}, Generator V3: {generator_v3_text}, Alarm: {alarm_text}, Condition: {condition_text}')
 
         if com == last_com:
             close_program()
@@ -421,7 +471,7 @@ def main():
 
             break
         else:
-            df.loc[len(df)] = [i, fuel, con_status, com, voltage, city_v1_text, city_v2_text, city_v3_text,generator_v1_text, generator_v2_text, generator_v3_text,alarm_text]
+            df.loc[len(df)] = [i, fuel, con_status, com, voltage, city_v1_text, city_v2_text, city_v3_text,generator_v1_text, generator_v2_text, generator_v3_text,alarm_text, condition_text]
             if i == last_num-1:
                 close_program()
                 df['COM'] = df['COM'].str.extract(r'(\d+)', expand=False)

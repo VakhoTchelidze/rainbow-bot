@@ -39,7 +39,7 @@ pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tessera
 # text = pytesseract.image_to_string(processed_image, config=custom_config)
 # print(text)
 
-time.sleep(3)
+# time.sleep(3)
 # comx, comy = 832,355
 # screenshot = pyautogui.screenshot()
 # cropped_image = screenshot.crop((comx-2, comy-2, comx+165, comx-440))
@@ -107,7 +107,7 @@ time.sleep(3)
 # for prediction in prediction_groups[0]:  # Single image example
 #     text, box = prediction
 #     print(f"Detected text: {text}, Bounding box: {box}")
-time.sleep(3)
+
 
 
 # city_volt_1 = (925,215, 1005, 237)
@@ -138,11 +138,45 @@ time.sleep(3)
 #
 # print(city_1_text,city_2_text,city_3_text)
 
-screenshot = pyautogui.screenshot()
-cropped_image = screenshot.crop((499,300, 827, 380))
-grayscale_image = cropped_image.convert('L')
-sharpness_enhancer = ImageEnhance.Sharpness(grayscale_image)
-sharpened_image = sharpness_enhancer.enhance(2)
-extracted_text = pytesseract.image_to_string(sharpened_image).strip()
+# screenshot = pyautogui.screenshot()
+# cropped_image = screenshot.crop((499,300, 827, 380))
+# grayscale_image = cropped_image.convert('L')
+# sharpness_enhancer = ImageEnhance.Sharpness(grayscale_image)
+# sharpened_image = sharpness_enhancer.enhance(2)
+# extracted_text = pytesseract.image_to_string(sharpened_image).strip()
+#
+# print(extracted_text)
 
-print(extracted_text)
+
+time.sleep(3)
+
+def loc():
+
+    condition = None
+
+    try:
+        pyautogui.locateOnScreen('images\\run.png')
+        condition = 'run'
+    except:
+        pass
+
+    try:
+        pyautogui.locateOnScreen('images\\stop.png')
+        condition = 'stop'
+    except:
+        pass
+
+    try:
+        pyautogui.locateOnScreen('images\\test.png')
+        condition = 'test'
+    except:
+        pass
+
+    if condition != 'test' or condition != 'stop' or condition != 'run':
+        condition = 'auto'
+    else:
+        pass
+
+    return condition
+
+print(loc())
