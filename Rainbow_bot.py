@@ -489,7 +489,7 @@ def main(send_m = True):
             df.to_csv(filename, index=True)
             if send_m:
                 send_email('', '', f'Com Times Data: {today_date}', f'გიგზავნი {today_date}-ის მონაცემებს',
-                           filename, ['abluashvili@finex.ge'])
+                           filename, [''])
             else:
                 pass
             break
@@ -513,7 +513,7 @@ def main(send_m = True):
 
                 if send_m:
                     send_email('', '', f'Modem Data: {today_date}', f'გიგზავნი {today_date}-ის მონაცემებს',
-                               filename, ['abluashvili@finex.ge'])
+                               filename, [''])
                 else:
                     pass
             else:
