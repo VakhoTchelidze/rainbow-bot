@@ -1,0 +1,156 @@
+,Number/Click,Time,Connection Status,COM,Voltage,City_Volt_1,City_Volt_2,City_Volt_3,Gen_Volt_1,Gen_Volt_2,Gen_Volt_3,Alarm,Condition
+0,1,-,Connceted,2,-,-,-,-,-,-,-,-,-
+1,2,1518,Connceted,5,14.4V,9V,V,V,232V,232V,232V,-,auto
+2,3,17615,Connceted,8,12.9V,V,V,V,V,V,V,-,auto
+3,4,2416,Connceted,9,13.1V,V,V,V,V,V,V,-,auto
+4,5,506,Connceted,10,13V,V,V,V,V,V,V,WARNING : Service Request,auto
+5,6,2459,Connceted,12,13.8V,223V,224V,226V,V,V,V,-,auto
+6,7,1403,Connceted,13,12.8V,V,V,V,V,V,V,-,auto
+7,8,-,Not Connceted,14,-,-,-,-,-,-,-,-,-
+8,9,2620,Connceted,15,12.8V,V,V,V,V,V,V,WARNING : Service Request,auto
+9,10,15108,Connceted,16,13V,V,V,V,V,V,V,WARNING : Service Request,auto
+10,11,-,Not Connceted,17,-,-,-,-,-,-,-,-,-
+11,12,8834,Connceted,19,13.5V,207V,207V,207V,V,V,V,-,auto
+12,13,18930,Connceted,20,12.8V,V,V,V,V,V,V,-,auto
+13,14,523,Connceted,21,12.8V,V,V,V,V,V,V,-,auto
+14,15,-,Not Connceted,22,-,-,-,-,-,-,-,-,-
+15,16,-,Not Connceted,23,-,-,-,-,-,-,-,-,-
+16,17,177,Connceted,24,12.8V,V,V,V,V,V,V,-,auto
+17,18,4450,Connceted,25,13.6V,220V,220V,220V,V,V,V,-,auto
+18,19,4627,Connceted,26,13.7V,223V,212V,218V,V,V,V,-,auto
+19,20,4086,Connceted,27,13.3V,V,V,V,V,V,V,-,auto
+20,21,2076,Connceted,28,14.4V,V,V,V,217V,222V,230V,-,auto
+21,22,3489,Connceted,29,13.8V,243V,244V,245V,V,V,V,-,auto
+22,23,4768,Connceted,30,14.5V,V,V,V,235V,227V,231V,-,auto
+23,24,37396,Connceted,31,13.7V,238V,237V,240V,V,V,V,-,auto
+24,25,50532,Connceted,32,14.4V,24V,22V,21V,216V,225V,221V,-,auto
+25,26,1526,Connceted,33,13.8V,218V,221V,221V,V,V,V,-,auto
+26,27,1960,Connceted,34,13.4V,239V,239V,238V,V,V,V,WARNING : Low Oil Press. Sender,auto
+27,28,1266,Connceted,36,12.8V,V,V,V,V,V,V,WARNING : Service Request,auto
+28,29,1255,Connceted,37,13.6V,221V,222V,222V,V,V,V,-,auto
+29,30,3662,Connceted,38,12.8V,V,V,V,V,V,V,-,auto
+30,31,1665,Connceted,39,13.5V,218V,230V,227V,V,V,V,-,auto
+31,32,576,Connceted,41,13.8V,228V,228V,227V,V,V,V,-,auto
+32,33,20247,Connceted,42,12.8V,V,V,V,V,V,V,-,auto
+33,34,-,Not Connceted,43,-,-,-,-,-,-,-,-,-
+34,35,-,Not Connceted,44,-,-,-,-,-,-,-,-,-
+35,36,11413,Connceted,45,14.6V,V,V,V,230V,234V,231V,-,auto
+36,37,196,Connceted,46,13.8V,237V,238V,231V,V,V,V,-,auto
+37,38,7975,Connceted,48,12.9V,V,V,V,V,V,V,-,auto
+38,39,-,Not Connceted,49,-,-,-,-,-,-,-,-,-
+39,40,26698,Connceted,54,13.5V,216V,208V,208V,V,V,V,-,auto
+40,41,-,Not Connceted,55,-,-,-,-,-,-,-,-,-
+41,42,459,Connceted,56,13.9V,219V,219V,219V,V,V,V,-,auto
+42,43,220,Connceted,57,13.7V,207V,234V,234V,V,V,V,-,auto
+43,44,766,Connceted,58,13.6V,220V,215V,220V,V,V,V,-,auto
+44,45,1819,Connceted,80,13.6V,228V,211V,217V,V,V,V,-,auto
+45,46,-,Not Connceted,18,-,-,-,-,-,-,-,-,-
+46,47,-,Not Connceted,155,-,-,-,-,-,-,-,-,-
+47,48,167,Connceted,95,13.3V,V,V,V,V,V,V,-,auto
+48,49,5086,Connceted,124,13.5V,236V,229V,242V,V,V,V,-,auto
+49,50,798,Connceted,35,13.7V,238V,238V,237V,V,V,V,-,auto
+50,51,1142,Connceted,120,13.7V,210V,210V,209V,V,V,V,-,auto
+51,52,528,Connceted,81,13.8V,205V,207V,203V,V,V,V,-,auto
+52,53,1320,Connceted,40,13.5V,218V,224V,219V,V,V,V,-,auto
+53,54,1585,Connceted,6,12.9V,V,V,V,V,V,V,-,auto
+54,55,14318,Connceted,88,13.8V,202V,203V,202V,V,V,V,WARNING : Service Request,auto
+55,56,9475,Connceted,152,13.7V,231V,233V,229V,V,V,V,-,auto
+56,57,-,Not Connceted,156,-,-,-,-,-,-,-,-,-
+57,58,5295,Connceted,150,13.6V,205V,218V,218V,V,V,V,-,auto
+58,59,18777,Connceted,151,13.6V,218V,235V,214V,V,V,V,-,auto
+59,60,1153,Connceted,148,13.7V,234V,236V,234V,V,V,V,-,auto
+60,61,1457,Connceted,149,13.7V,229V,228V,229V,V,V,V,-,auto
+61,62,6,Connceted,146,13.3V,237V,237V,237V,V,V,V,-,auto
+62,63,2163,Connceted,147,13.7V,232V,232V,231V,V,V,V,WARNING : Service Request,auto
+63,64,614,Connceted,145,13.6V,241V,225V,242V,V,V,V,-,auto
+64,65,76,Connceted,144,13.8V,216V,230V,215V,V,V,V,-,auto
+65,66,197,Connceted,141,13.4V,212V,212V,212V,V,V,V,-,stop
+66,67,8428,Connceted,143,13.4V,222V,224V,221V,V,V,V,-,auto
+67,68,661,Connceted,142,12.7V,V,V,V,V,V,V,-,auto
+68,69,383,Connceted,140,13.5V,219V,223V,220V,V,V,V,-,auto
+69,70,-,Not Connceted,139,-,-,-,-,-,-,-,-,-
+70,71,2376,Connceted,4,13.5V,206V,205V,205V,V,V,V,-,auto
+71,72,365,Connceted,138,13.6V,227,227V,214V,V,V,V,-,auto
+72,73,10884,Connceted,136,13.5V,216V,216V,216V,V,V,V,-,auto
+73,74,-,Not Connceted,137,-,-,-,-,-,-,-,-,-
+74,75,194,Connceted,133,13.1V,245V,245V,245V,V,V,V,-,auto
+75,76,123,Connceted,131,13.8V,220V,221V,222V,V,V,V,-,auto
+76,77,-,Connceted,135,-,-,-,-,-,-,-,-,-
+77,78,873,Connceted,132,13.6V,224V,218V,235V,V,V,V,-,auto
+78,79,24,Connceted,129,13.5V,198V,220V,222V,V,V,V,-,auto
+79,80,88,Connceted,134,14.5V,228V,228V,231V,V,V,V,-,auto
+80,81,-,Not Connceted,154,-,-,-,-,-,-,-,-,-
+81,82,-,Not Connceted,153,-,-,-,-,-,-,-,-,-
+82,83,156,Connceted,130,13.7V,217V,217V,217V,V,V,V,-,auto
+83,84,217,Connceted,128,13.6V,231V,235V,217V,V,V,V,-,auto
+84,85,2372,Connceted,126,13.9V,205V,204V,204V,V,V,V,-,auto
+85,86,152,Connceted,127,13.4V,225V,218V,243V,V,V,V,-,auto
+86,87,4334,Connceted,125,13.6V,222V,222V,222V,V,V,V,-,auto
+87,88,68,Connceted,121,13.3V,233V,211V,225V,V,V,V,-,stop
+88,89,103,Connceted,123,13.6V,224V,230V,230V,V,V,V,-,auto
+89,90,-,Connceted,122,-,-,-,-,-,-,-,-,-
+90,91,2569,Connceted,119,13.4V,205V,211V,211V,V,V,V,-,auto
+91,92,237,Connceted,118,13.5V,197V,196V,189V,V,V,V,-,auto
+92,93,1680,Connceted,116,13.8V,238V,247V,232V,V,V,V,-,auto
+93,94,-,Connceted,113,-,-,-,-,-,-,-,-,-
+94,95,34,Connceted,117,13.7V,215V,214V,245V,V,V,V,-,auto
+95,96,22832,Connceted,115,13.7V,220V,226V,231V,V,V,V,-,auto
+96,97,1812,Connceted,114,13.7V,229V,235V,238V,V,V,V,-,auto
+97,98,23,Connceted,112,13.5V,233V,222V,245V,V,V,V,-,auto
+98,99,30,Connceted,111,13.6V,243V,229V,206V,V,V,V,-,auto
+99,100,1411,Connceted,109,13.7V,221V,224V,231V,V,V,V,-,auto
+100,101,105,Connceted,110,13.8V,235V,233V,233V,V,V,V,-,auto
+101,102,1916,Connceted,77,13.7V,223V,215V,202V,V,V,V,WARNING : Service Request,auto
+102,103,1359,Connceted,108,13.2V,221V,216V,221V,V,V,V,-,auto
+103,104,-,Not Connceted,75,-,-,-,-,-,-,-,-,-
+104,105,1768,Connceted,79,12.6V,V,V,V,V,V,V,WARNING : Service Request,auto
+105,106,2712,Connceted,68,13.7V,233V,239V,233V,V,V,V,-,auto
+106,107,12,Connceted,65,13.7V,218V,235V,224V,V,V,V,-,auto
+107,108,102,Connceted,78,13.8V,213V,216V,216V,V,V,V,-,auto
+108,109,27966,Connceted,67,13.5V,246V,243V,244V,V,V,V,-,auto
+109,110,10537,Connceted,63,14.5V,5V,V,V,226V,219V,220V,-,auto
+110,111,1258,Connceted,64,13.9V,225V,222V,222V,V,V,V,-,auto
+111,112,-,Not Connceted,66,-,-,-,-,-,-,-,-,-
+112,113,938,Connceted,69,13.6V,221V,206V,228V,V,V,V,-,auto
+113,114,11800,Connceted,83,13.3V,230V,238V,238V,V,V,V,-,auto
+114,115,1002,Connceted,71,13.6V,231V,224V,231V,V,V,V,-,auto
+115,116,463,Connceted,70,13.3V,206V,206V,207V,V,V,V,-,auto
+116,117,17390,Connceted,84,12.8V,V,V,V,V,V,V,-,auto
+117,118,1095,Connceted,82,13.7V,230V,224V,225V,V,V,V,-,auto
+118,119,7676,Connceted,72,13.3V,215V,222V,197V,V,V,V,WARNING : Service Request,auto
+119,120,215,Connceted,86,13.3V,234V,226V,227V,V,V,V,-,auto
+120,121,10621,Connceted,11,12.6V,V,V,V,V,V,V,-,auto
+121,122,11144,Connceted,1,13.6V,208V,223V,208V,V,V,V,-,auto
+122,123,3361,Connceted,3,12.6V,V,V,V,V,V,V,-,auto
+123,124,9481,Connceted,52,13.8V,211V,211V,245V,V,V,V,WARNING : Service Request,auto
+124,125,11671,Connceted,89,13.6V,220V,220V,220V,V,V,V,|SHUTDOWN ALARM: Emergency Stop,stop
+125,126,26,Connceted,87,13.6V,213V,202V,202V,V,V,V,-,auto
+126,127,21620,Connceted,60,12.7V,V,V,V,V,V,V,-,auto
+127,128,1308,Connceted,59,13.6V,228V,226V,221V,V,V,V,WARNING : Service Request,auto
+128,129,609,Connceted,76,13.8V,232V,232V,234V,V,V,V,-,auto
+129,130,20600,Connceted,7,12.5V,V,V,V,V,V,V,|SHUTDOWN ALARM: Emergency Stop,stop
+130,131,-,Not Connceted,92,-,-,-,-,-,-,-,-,-
+131,132,2829,Connceted,50,13.6V,219V,223V,223V,V,V,V,WARNING : Service Request,auto
+132,133,860,Connceted,93,13.8V,207V,222V,206V,V,V,V,-,auto
+133,134,639,Connceted,51,13.7V,226V,214V,236V,V,V,V,WARNING : Service Request,auto
+134,135,-,Not Connceted,47,-,-,-,-,-,-,-,-,-
+135,136,60,Connceted,97,13.9V,226V,226V,226V,V,V,V,-,stop
+136,137,10,Connceted,94,13.9V,216V,216V,214V,V,V,V,-,auto
+137,138,23700,Connceted,98,13.3V,222V,219V,230V,V,V,V,-,auto
+138,139,1184,Connceted,99,13.7V,224V,222V,221V,V,V,V,WARNING : Service Request,auto
+139,140,10844,Connceted,100,13.7V,231V,229V,222V,V,V,V,-,auto
+140,141,6166,Connceted,101,13.7V,219V,226V,227V,V,V,V,-,auto
+141,142,959,Connceted,91,13.5V,229V,235V,238V,V,V,V,-,auto
+142,143,441,Connceted,102,13.7V,238V,238V,236V,V,V,V,-,auto
+143,144,0,Connceted,103,13.7V,196V,196V,241V,V,V,V,-,auto
+144,145,-,Not Connceted,105,-,-,-,-,-,-,-,-,-
+145,146,342143,Connceted,74,12.8V,V,V,V,V,V,V,WARNING : Service Request,auto
+146,147,-,Not Connceted,104,-,-,-,-,-,-,-,-,-
+147,148,72,Connceted,106,13.1V,225V,227V,226V,V,V,V,-,auto
+148,149,1133,Connceted,73,13.6V,218V,225V,196V,V,V,V,-,auto
+149,150,-,Not Connceted,62,-,-,-,-,-,-,-,-,-
+150,151,17,Connceted,107,13.7V,253V,252V,248V,V,V,V,-,auto
+151,152,16682,Connceted,61,13.3V,212V,211V,222V,V,V,V,SHUTDOWN ALARM: Fail to Start,stop
+152,153,928,Connceted,53,13.8V,210V,211V,211V,V,V,V,-,auto
+153,154,-,Not Connceted,85,-,-,-,-,-,-,-,-,-
+154,155,-,Not Connceted,90,-,-,-,-,-,-,-,-,-

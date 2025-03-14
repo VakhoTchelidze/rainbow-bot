@@ -1,0 +1,165 @@
+,Number/Click,Time,Connection Status,COM,Voltage,City_Volt_1,City_Volt_2,City_Volt_3,Gen_Volt_1,Gen_Volt_2,Gen_Volt_3,Alarm,Condition,Remarks,COMName,RemoteIP
+0,1,-,Connceted,2,-,-,-,-,-,-,-,-,-,SJVH_Khando,2,10.170.0.54
+1,2,1707,Connceted,5,12.7V,V,V,V,V,V,V,WARNING : Service Request,auto,KAKH_Shuamta,5,10.170.2.149
+2,3,-,Not Connceted,8,-,-,-,-,-,-,-,-,-,KAKH_Davit_Gareji,8,10.170.1.12
+3,4,2723,Connceted,9,14.3V,V,V,V,230V,232V,225V,-,auto,ADJR_Keda_TV,9,10.170.10.15
+4,5,574,Connceted,10,12.8V,V,V,V,V,V,V,-,auto,SJVH_Tskhratskaro,10,10.170.0.139
+5,6,2463,Connceted,12,13.8V,220V,226V,225V,V,V,V,-,auto,IMRT_Boriti,12,10.170.12.28
+6,7,1601,Connceted,13,12.7V,V,V,V,V,V,V,-,auto,GURI_Nabeghlavi,13,10.170.11.12
+7,8,-,Not Connceted,14,-,-,-,-,-,-,-,-,-,KRTL_Irganchai,14,10.170.3.109
+8,9,2839,Connceted,15,12.8V,V,V,V,V,V,V,-,auto,KRTL_Angrevani,15,10.170.3.22
+9,10,15275,Connceted,16,12.8V,V,V,V,V,V,V,-,auto,MSTN_Magaroskari,16,10.170.5.104
+10,11,-,Not Connceted,17,-,-,-,-,-,-,-,-,-,ADJR_Shuakhevi_TV,17,10.170.10.37
+11,12,8835,Connceted,19,13.6V,203V,203V,203V,V,V,V,-,auto,SJVH_Borjomi_TV,19,10.170.0.137
+12,13,19152,Connceted,20,12.8V,V,V,V,V,V,V,-,auto,SJVH_Kartsakhi,20,10.170.0.97
+13,14,772,Connceted,21,12.7V,V,V,V,V,V,V,-,auto,SJVH_Mamtsvara,21,10.170.0.90
+14,15,-,Not Connceted,22,-,-,-,-,-,-,-,-,-,SJVH_Efremovka,22,10.170.0.80
+15,16,3338,Connceted,23,14.4V,20V,15V,17V,228V,229V,230V,-,auto,MSTN_Sioni,23,10.170.2.132
+16,17,424,Connceted,24,12.9V,V,V,V,V,V,V,-,auto,MSTN_Khevsurtsopeli,24,10.170.5.110
+17,18,4454,Connceted,25,13.6V,219V,219V,219V,V,V,V,-,auto,KRTL_Rekha,25,10.170.3.103
+18,19,4627,Connceted,26,13.7V,227,218V,218V,V,V,V,-,auto,KRTL_Tsalka,26,10.170.3.107
+19,20,4272,Connceted,27,13.3V,V,V,V,V,V,V,-,auto,KRTL_Bediani_Kldisi,27,10.170.3.12
+20,21,2379,Connceted,28,14.3V,V,V,V,217V,218V,218V,-,auto,KRTL_Tsopi,28,10.170.3.101
+21,22,3490,Connceted,29,13.8V,244,247V,247V,V,V,V,-,auto,MSTN_Gudauri_TV,29,10.170.3.51
+22,23,5047,Connceted,30,14.5V,V,V,V,233V,230V,231V,-,test,SVAN_Chuberi,30,10.170.15.99
+23,24,37397,Connceted,31,13.7V,238V,239V,241V,V,V,V,-,auto,KAKH_Gamarjveba,31,10.170.2.118
+24,25,50934,Connceted,32,14.2V,24V,23V,22V,218V,224V,220V,WARNING : Service Request,auto,SHDK_Okami,32,10.170.5.106
+25,26,-,Not Connceted,33,-,-,-,-,-,-,-,-,-,MSTN_Dusheti_TV,33,10.170.5.120
+26,27,1980,Connceted,34,13.4V,230V,230V,229V,V,V,V,-,auto,IMRT_Leghvani,34,10.170.12.15
+27,28,1580,Connceted,36,12.8V,V,V,V,V,V,V,-,auto,KRTL_Tandzia_Senebi,36,10.170.3.24
+28,29,1256,Connceted,37,13.5V,203V,204V,204V,V,V,V,-,auto,ADJR_Shubani,37,10.170.10.49
+29,30,3942,Connceted,38,12.9V,V,V,V,V,V,V,-,auto,MSTN_Nichbisi,38,10.170.5.108
+30,31,1671,Connceted,39,14.5V,V,V,V,229V,233V,230V,-,auto,KAKH_Tsivi,39,10.170.2.175
+31,32,592,Connceted,41,13.8V,213V,213V,213V,V,V,V,-,auto,ADJR_Gori_Shuakhevi,41,10.170.10.35
+32,33,20425,Connceted,42,12.8V,V,V,V,V,V,V,-,auto,SHDK_Tkotsa,42,10.170.0.143
+33,34,-,Not Connceted,43,-,-,-,-,-,-,-,-,-,TBLS_Didi_Lilo,43,10.170.7.14
+34,35,-,Not Connceted,44,-,-,-,-,-,-,-,-,-,ADJR_Khikhadziri,44,10.170.10.44
+35,36,-,Not Connceted,45,-,-,-,-,-,-,-,-,-,SHDK_Abisi_Tseronisi,45,10.170.4.102
+36,37,211,Connceted,46,13.7V,238V,236V,234V,V,V,V,-,auto,IMRT_Khevi,46,10.170.12.16
+37,38,8162,Connceted,48,13V,V,V,V,V,V,V,-,auto,IMRT_Ghoresha,48,10.170.12.123
+38,39,-,Not Connceted,49,-,-,-,-,-,-,-,-,-,RACH_Tkibuli_Pass,49,10.170.12.113
+39,40,26699,Connceted,54,13.5V,225V,210V,210V,V,V,V,-,auto,IMRT_Sairme,54,10.170.16.24
+40,41,214,Connceted,55,13.6V,200V,200V,201V,V,V,V,-,auto,ADJR_Legva,55,10.170.18.21
+41,42,480,Connceted,56,13.9V,213V,213V,213V,V,V,V,SHUTDOWN ALARM: Fail to Start,auto,IMRT_Ukhuti,56,10.170.16.26
+42,43,225,Connceted,57,13.7V,198V,243V,243V,V,V,V,-,auto,SJVH_Tabatskuri,57,10.170.0.102
+43,44,768,Connceted,58,13.6V,230V,213V,229V,V,V,V,-,auto,MSTN_Siontgori,58,10.170.5.118
+44,45,1872,Connceted,80,13.6V,235V,224V,222V,V,V,V,-,auto,SVAN_Etseri,80,10.170.15.140
+45,46,705,Connceted,95,14.6V,V,V,V,226V,224V,233V,-,auto,SVAN_Mulakhi,95,10.170.15.147
+46,47,5086,Connceted,124,13.4V,237V,229V,240V,V,V,V,-,auto,TBLS_Tskneti_MNT,124,10.170.6.15
+47,48,800,Connceted,35,13.7V,231V,231V,230V,V,V,V,-,auto,SVAN_Ushguli,35,10.170.15.149
+48,49,1151,Connceted,120,13.7V,207V,206V,206V,V,V,V,-,auto,IMRT_Jalaurta,120,10.170.12.19
+49,50,599,Connceted,81,13.8V,218V,219V,214V,V,V,V,-,auto,SVAN_Becho,81,10.170.15.145
+50,51,1373,Connceted,40,13.5V,227,233V,228V,V,V,V,WARNING : Service Request,auto,SVAN_Mestia,40,10.170.15.144
+51,52,1821,Connceted,6,12.9V,V,V,V,V,V,V,-,auto,SVAN_Nakra,6,10.170.15.142
+52,53,14399,Connceted,88,13.8V,209V,210V,209V,V,V,V,WARNING : Service Request,auto,SVAN_Tskhumari,88,10.170.15.151
+53,54,-,Not Connceted,152,-,-,-,-,-,-,-,-,-,MSTN_Dusheti_MNT,152,10.170.5.119
+54,55,5305,Connceted,150,13.6V,208V,213V,212V,V,V,V,-,auto,KRTL_Didi_Iraga,150,10.170.6.12
+55,56,-,Not Connceted,151,-,-,-,-,-,-,-,-,-,MSTN_Chartali,151,10.170.5.122
+56,57,1161,Connceted,148,13.6V,239V,241V,237V,V,V,V,-,auto,KRTL_Kirovka,148,10.170.3.53
+57,58,-,Not Connceted,149,-,-,-,-,-,-,-,-,-,KRTL_Didi_Muganlo,149,10.170.3.52
+58,59,11,Connceted,146,13.3V,239V,239V,239V,V,V,V,-,auto,KRTL_Shaumian_Modem,146,10.170.3.80
+59,60,-,Not Connceted,147,-,-,-,-,-,-,-,-,-,SJVH_Khertvisi,147,10.170.0.84
+60,61,652,Connceted,145,13.7V,253V,230V,256V,V,V,V,WARNING : Service Request,auto,RACH_Likheti,145,10.170.13.85
+61,62,85,Connceted,144,14.6V,V,V,V,233V,230V,234V,-,auto,MSTN_Tskhvarichamia,144,10.170.5.115
+62,63,197,Connceted,141,13.4V,191V,191V,191V,V,V,V,-,stop,IMRT_Khreiti,141,10.170.12.38
+63,64,8428,Connceted,143,13.4V,222V,217V,219V,V,V,V,-,auto,TBLS_Kojori_Qorogli,143,10.170.6.21
+64,65,909,Connceted,142,14.7V,54V,53V,54V,219V,236V,219V,-,auto,SVAN_Idliani_1,142,10.170.15.117
+65,66,384,Connceted,140,13.5V,225V,227V,225V,V,V,V,-,auto,KRTL_Tsalka_TV,140,10.170.3.112
+66,67,44,Connceted,139,13.2V,228V,227V,228V,V,V,V,-,auto,MEGR_Sachino,139,10.170.13.39
+67,68,2382,Connceted,4,14.5V,V,V,V,230V,231V,231V,-,auto,MSTN_Akhatani,4,10.170.5.112
+68,69,377,Connceted,138,13.6V,244,245V,233V,V,V,V,-,auto,MEGR_Skuri,138,10.170.15.127
+69,70,10885,Connceted,136,13.5V,211V,211V,211V,V,V,V,-,auto,MEGR_Jikhashkari,136,10.170.15.72
+70,71,1980,Connceted,137,13.7V,229V,229V,229V,V,V,V,WARNING : Service Request,auto,MEGR_Khabume,137,10.170.13.29
+71,72,221,Connceted,133,13.1V,242,242V,242V,V,V,V,-,auto,MEGR_Darcheli,133,10.170.15.76
+72,73,130,Connceted,131,13.8V,221V,222V,224V,V,V,V,-,auto,SVAN_Lentekhi,131,10.170.13.109
+73,74,-,Connceted,135,-,-,-,-,-,-,-,-,-,IMRT_Satsire,135,10.170.13.81
+74,75,885,Connceted,132,13.6V,233V,221V,239V,V,V,V,-,auto,MEGR_Lia_Modem,132,10.170.15.125
+75,76,57,Connceted,129,13.5V,213V,238V,231V,V,V,V,-,auto,MEGR_Akhuti,129,10.170.15.132
+76,77,122,Connceted,134,14.5V,233V,233V,231V,V,V,V,-,auto,MEGR_Chkhoria,134,10.170.15.74
+77,78,188,Connceted,130,13.7V,218V,218V,218V,V,V,V,-,auto,MEGR_Potskho,130,10.170.15.107
+78,79,217,Connceted,128,13.6V,229V,236V,220V,V,V,V,-,auto,MSTN_Larsi,128,10.170.3.40
+79,80,2385,Connceted,126,13.9V,203V,203V,203V,V,V,V,-,auto,IMRT_Korbouli,126,10.170.12.109
+80,81,168,Connceted,127,13.4V,225V,218V,245V,V,V,V,-,auto,IMRT_Tskhami,127,10.170.12.124
+81,82,4346,Connceted,125,13.6V,225V,224V,225V,V,V,V,-,auto,IMRT_Lichi,125,10.170.12.14
+82,83,99,Connceted,121,13.3V,238V,212V,230V,V,V,V,-,auto,MEGR_Nokalakevi,121,10.170.15.121
+83,84,110,Connceted,123,13.7V,227,233V,235V,V,V,V,-,auto,IMRT_Chiatura_TV,123,10.170.12.107
+84,85,-,Connceted,122,-,-,-,-,-,-,-,-,-,IMRT_Zodi,122,10.170.12.125
+85,86,-,Not Connceted,119,-,-,-,-,-,-,-,-,-,IMRT_Shrosha,119,10.170.12.7
+86,87,245,Connceted,118,13.5V,212V,212V,178V,V,V,V,-,auto,KRTL_Akhkerpi,118,10.170.3.97
+87,88,1717,Connceted,116,13.7V,233V,244V,227V,V,V,V,-,auto,IMRT_Sochkheti,116,10.170.13.64
+88,89,-,Connceted,113,-,-,-,-,-,-,-,-,-,IMRT_Gogni,113,10.170.16.13
+89,90,42,Connceted,117,13.6V,225V,206V,252V,V,V,V,-,auto,KRTL_Chanakhchi,117,10.170.3.30
+90,91,22882,Connceted,115,13.7V,220V,229V,226V,V,V,V,-,auto,IMRT_Kumistavi,115,10.170.13.49
+91,92,1814,Connceted,114,13.7V,233V,238V,239V,V,V,V,-,auto,IMRT_Vakhani,114,10.170.0.88
+92,93,43,Connceted,112,13.5V,239V,231V,242V,V,V,V,-,auto,MEGR_Khobi_Funicular,112,10.170.15.84
+93,94,34,Connceted,111,13.6V,238V,229V,215V,V,V,V,-,auto,IMRT_Ternali,111,10.170.13.20
+94,95,1465,Connceted,109,13.7V,225V,226V,231V,V,V,V,-,auto,IMRT_Chishura,109,10.170.16.5
+95,96,146,Connceted,110,13.8V,238V,236V,236V,V,V,V,-,auto,MEGR_Senaki_TV,110,10.170.15.40
+96,97,1980,Connceted,77,13.5V,230V,218V,218V,V,V,V,-,auto,IMRT_Gordi,77,10.170.13.18
+97,98,1396,Connceted,108,13.2V,224V,215V,225V,V,V,V,-,auto,MEGR_Ledzadzame,108,10.170.15.38
+98,99,-,Not Connceted,75,-,-,-,-,-,-,-,-,-,IMRT_Orpiri,75,10.170.13.41
+99,100,2080,Connceted,79,12.7V,V,V,V,V,V,V,WARNING : Service Request,auto,KRTL_Kratikani_MNT,79,10.170.3.16
+100,101,2713,Connceted,68,13.7V,234V,239V,234V,V,V,V,-,auto,SHDK_Kareli,68,10.170.4.125
+101,102,118,Connceted,65,13.6V,211V,229V,218V,V,V,V,-,auto,ADJR_Khulo_TV,65,10.170.10.39
+102,103,145,Connceted,78,13.8V,223V,225V,225V,V,V,V,-,auto,IMRT_Kharagauli_Qroli,78,10.170.12.36
+103,104,-,Not Connceted,67,-,-,-,-,-,-,-,-,-,KAKH_Iormuganlo,67,10.170.1.75
+104,105,10779,Connceted,63,12.9V,V,V,V,V,V,V,-,auto,SVAN_Idliani_2,63,10.170.15.94
+105,106,1296,Connceted,64,13.9V,220V,222V,223V,V,V,V,-,auto,IMRT_Khani,64,10.170.16.6
+106,107,-,Not Connceted,66,-,-,-,-,-,-,-,-,-,SJVH_Ninotsminda_MNT,66,10.170.0.133
+107,108,938,Connceted,69,13.6V,214V,211V,219V,V,V,V,-,auto,GURI_Chokhatauri,69,10.170.11.21
+108,109,11810,Connceted,83,13.3V,230V,237V,238V,V,V,V,-,auto,IMRT_Mekvena,83,10.170.13.23
+109,110,1079,Connceted,71,13.6V,233V,226V,231V,V,V,V,-,auto,IMRT_Alaverdi_TV,71,10.170.12.10
+110,111,479,Connceted,70,13.3V,201V,201V,201V,V,V,V,-,auto,IMRT_Bzvani,70,10.170.16.10
+111,112,17712,Connceted,84,12.9V,V,V,V,V,V,V,-,auto,RACH_Tsageri_2,84,10.170.13.52
+112,113,1191,Connceted,82,13.7V,227,229V,227V,V,V,V,-,auto,RACH_Tskhukusheri,82,10.170.13.54
+113,114,7676,Connceted,72,13.3V,206V,226V,205V,V,V,V,WARNING : Service Request,auto,KRTL_Amamlo,72,10.170.3.99
+114,115,221,Connceted,86,13.3V,236V,228V,228V,V,V,V,-,auto,KRTL_Orbeti_Pantiani,86,10.170.3.121
+115,116,10872,Connceted,11,14.5V,V,12V,13V,228V,232V,226V,-,auto,SVAN_Jakhunderi,11,10.170.13.66
+116,117,11208,Connceted,1,13.6V,206V,222V,206V,V,V,V,"WARNING : Service Request
+SHUTDOWN ALARM: Low Oil Press. Sender",auto,RACH_Chrebalo,1,10.170.13.74
+117,118,3648,Connceted,3,14.5V,V,V,V,228V,229V,228V,WARNING : Service Request,auto,IMRT_Vazisubani,3,10.170.9.207
+118,119,9513,Connceted,52,13.2V,V,V,V,V,V,V,WARNING : Service Request,auto,RACH_Chebi,52,10.170.13.76
+119,120,11671,Connceted,89,13.6V,217V,217V,217V,V,V,V,SHUTDOWN ALARM: Emergency Stop,stop,IMRT_GADIDI,89,10.170.9.201
+120,121,48,Connceted,87,14.4V,V,V,V,231V,231V,231V,-,auto,KAKH_Omalo_Pankisi,87,10.170.2.174
+121,122,21895,Connceted,60,14.3V,5V,V,V,235V,225V,229V,-,auto,SJVH_CHVINTA,60,10.170.0.52
+122,123,1323,Connceted,59,12.9V,V,V,V,V,V,V,WARNING : Service Request,auto,RACH_UTSERA,59,10.170.13.78
+123,124,609,Connceted,76,13.8V,228V,229V,230V,V,V,V,-,auto,KAKH_Sasadilo_Gombori,76,10.170.2.165
+124,125,20600,Connceted,7,12.7V,V,V,V,V,V,V,SHUTDOWN ALARM: Emergency Stop,stop,RACH_Tsageri,7,10.170.13.51
+125,126,-,Not Connceted,92,-,-,-,-,-,-,-,-,-,KAKH_Tusheti,92,10.170.2.40
+126,127,2840,Connceted,50,13.6V,232V,233V,233V,V,V,V,WARNING : Service Request,auto,RACH_Khotevi,50,10.170.13.83
+127,128,883,Connceted,93,13.8V,220V,217V,212V,V,V,V,-,auto,SVAN_Mucdi,93,10.170.13.107
+128,129,669,Connceted,51,13.7V,232V,218V,236V,V,V,V,WARNING : Service Request,auto,RACH_Ambrolauri_TV,51,10.170.13.105
+129,130,-,Not Connceted,47,-,-,-,-,-,-,-,-,-,GURI_Bakhmaro,47,10.170.9.199
+130,131,60,Connceted,97,13.8V,222V,221V,221V,V,V,V,-,stop,SJVH_Aragva,97,10.170.0.104
+131,132,10,Connceted,94,13.8V,219V,220V,214V,V,V,V,-,auto,KRTL_Dmanisi_TV,94,10.170.3.105
+132,133,23700,Connceted,98,13.3V,223V,209V,228V,V,V,V,-,auto,SJVH_Baraleti,98,10.170.0.53
+133,134,1201,Connceted,99,13.7V,226V,225V,222V,V,V,V,WARNING : Service Request,auto,IMRT_Tskaltashua,99,10.170.16.8
+134,135,10862,Connceted,100,13.7V,230V,228V,229V,V,V,V,-,auto,SJVH_Kekhovani,100,10.170.0.42
+135,136,6170,Connceted,101,13.7V,220V,227V,226V,V,V,V,-,auto,SJVH_Tsagveri,101,10.170.0.24
+136,137,960,Connceted,91,13.5V,227,243V,238V,V,V,V,-,auto,SJVH_Bakuriani_Kokhta,91,10.170.0.135
+137,138,445,Connceted,102,13.7V,235V,236V,236V,V,V,V,-,auto,SJVH_Atskuri_MNT,102,10.170.0.85
+138,139,0,Connceted,103,13.7V,221V,220V,235V,V,V,V,-,auto,SJVH_Sakire,103,10.170.0.83
+139,140,183,Connceted,105,13.5V,204V,203V,204V,V,V,V,-,auto,MEGR_Didi_Chkoni,105,10.170.13.35
+140,141,34460,Connceted,74,14.5V,6V,V,V,233V,241V,235V,-,auto,IMRT_Nunisi,74,10.170.0.92
+141,142,1273,Connceted,104,13.6V,190V,190V,207V,V,V,V,-,auto,MEGR_Martvili,104,10.170.13.43
+142,143,155,Connceted,106,14.4V,V,V,V,232V,231V,228V,-,auto,MEGR_TSAISHI,106,10.170.15.66
+143,144,1146,Connceted,73,13.5V,229V,221V,209V,V,V,V,-,auto,IMRT_Nadaburi,73,10.170.12.120
+144,145,-,Not Connceted,62,-,-,-,-,-,-,-,-,-,ADJR_Sarpi,62,10.170.10.5
+145,146,517,Connceted,107,13.7V,254V,254V,253V,V,V,V,-,auto,SJVH_Poka,107,10.170.0.82
+146,147,16682,Connceted,61,13.3V,211V,210V,229V,V,V,V,SHUTDOWN ALARM: Fail to Start,auto,GURI_Surebi,61,10.170.11.14
+147,148,943,Connceted,53,13.7V,226V,226V,227V,V,V,V,-,auto,RACH_Khonchiori,53,10.170.13.87
+148,149,5891,Connceted,85,13.6V,238V,234V,238V,V,V,V,-,auto,SHDK_Khashuri_TV_Modem,85,10.170.0.6
+149,150,-,Not Connceted,90,-,-,-,-,-,-,-,-,-,SHDK_Gomi_Modem_IP,90,10.170.4.18
+150,151,2,Connceted,96,12.9V,V,V,V,V,V,V,-,auto,KRTL_Bolnisi_Modem,96,10.170.3.124
+151,152,4845,Connceted,157,13.7V,243V,244V,244V,V,V,V,-,auto,IMRT_Rikoti_Modem,157,10.170.12.12
+152,153,-,Not Connceted,18,-,-,-,-,-,-,-,-,-,SJVH_Bakuriani_park,18,10.170.0.119
+153,154,7119,Connceted,155,13.5V,211V,249V,236V,V,V,V,-,auto,KAKH_Barjiskhevi,155,10.170.2.130
+154,155,298,Connceted,156,13.3V,195V,195V,251V,V,V,V,-,auto,KRTL_Marneuli_MNT,156,10.170.3.117
+155,156,178,Connceted,153,13.6V,233V,229V,231V,V,V,V,-,auto,KAKH_Darcheti,153,10.170.2.31
+156,157,18436,Connceted,154,13.4V,227,227V,224V,V,V,V,-,auto,KAKH_Shilda,154,10.170.2.58
+157,158,1882,Connceted,158,13.6V,218V,229V,248V,V,V,V,WARNING : Service Request,auto,MEGR_Napichkhovo_Modem,158,10.170.13.79
+158,159,172,Connceted,159,13.7V,212V,211V,210V,V,V,V,-,auto,MSTN_Kvesheti_Modem,159,10.170.3.91
+159,160,-,Not Connceted,160,-,-,-,-,-,-,-,-,-,TBLS_Kazreti_TV,160,10.170.6.24
+160,161,1415,Connceted,161,13.5V,234V,236V,235V,V,V,V,-,auto,GURI_Lesa_Modem,161,10.170.15.82
+161,162,851,Connceted,162,13.6V,220V,219V,219V,V,V,V,-,auto,MEGR_Martvili_TV_Modem,162,10.170.13.33
+162,163,3116,Connceted,163,13.8V,235V,235V,235V,V,V,V,WARNING : Service Request,auto,MEGR_Bandza_Modem,163,10.170.13.27

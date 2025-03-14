@@ -12,7 +12,9 @@ import pyperclip
 import pytesseract
 import pandas as pd
 from datetime import datetime
-
+from concurrent.futures import ThreadPoolExecutor
+from send_mail import send_email
+from com_parser import com_parser
 
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
@@ -44,7 +46,7 @@ def run_vcom_app():
     os.startfile(app_path, "runas")
 
 def runapp():
-    app_path = r"C:\RAINBOW\Rainbow Monitoring 3.23\RAINBOW.exe"
+    app_path = r"C:\RAINBOW\Rainbow Monitoring 3.23\RAINBOW_edited.exe"
     os.startfile(app_path, "runas")
     time.sleep(5)
     get_window()
@@ -83,8 +85,9 @@ def choose_port_field(num=1):
         # time.sleep(0.15)
         pyautogui.press('down')
     pyautogui.press('tab')
-    for i in range(num):
-        pyautogui.press('down')
+    # for i in range(num):
+    #     pyautogui.press('down')
+    pyautogui.press('down')
     time.sleep(0.5)
 
 def press_connect_button():
@@ -129,22 +132,26 @@ def alert_check():
         return con_status
 
 def time_extractor():
-    screenshot = pyautogui.screenshot()
-    cropped_image = screenshot.crop((timx-2, timy-2, timx+150, timx-27))
-    grayscale_image = cropped_image.convert('L')
-    sharpness_enhancer = ImageEnhance.Sharpness(grayscale_image)
-    sharpened_image = sharpness_enhancer.enhance(2)
-    contrast_enhancer = ImageEnhance.Contrast(sharpened_image)
-    enhanced_image = contrast_enhancer.enhance(1.5)
-    custom_config = r'--psm 6 -c tessedit_char_whitelist=0123456789.,'
-    extracted_text = pytesseract.image_to_string(enhanced_image, config=custom_config).strip()
-    # enhanced_image.save('imagescreen.png')
+    # screenshot = pyautogui.screenshot()
+    # cropped_image = screenshot.crop((timx-2, timy-2, timx+150, timx-27))
+    # grayscale_image = cropped_image.convert('L')
+    # sharpness_enhancer = ImageEnhance.Sharpness(grayscale_image)
+    # sharpened_image = sharpness_enhancer.enhance(2)
+    # contrast_enhancer = ImageEnhance.Contrast(sharpened_image)
+    # enhanced_image = contrast_enhancer.enhance(1.5)
+    # custom_config = r'--psm 6 -c tessedit_char_whitelist=0123456789.,'
+    # extracted_text = pytesseract.image_to_string(enhanced_image, config=custom_config).strip()
+    # # enhanced_image.save('imagescreen.png')
+    pyautogui.doubleClick(562,457)
+    pyautogui.hotkey("ctrl", "c")
+    extracted_text = pyperclip.paste()
 
     return extracted_text
 
 def abort_detection():
     try:
-        pyautogui.locateOnScreen('images/abort_identificator.png')
+        time.sleep(2)
+        pyautogui.locateOnScreen('images/abort_identificator.png', region=(456,31,551,240)) #region=(456,31,551,240)
         tu = True
         fuel = '-'
         voltage = '-'
@@ -154,6 +161,7 @@ def abort_detection():
         condition = '-'
         screenshot = pyautogui.screenshot()
         time_screen = screenshot.crop((473, 425, 872, 485))
+        # time_screen.save('timescree.png')
     except:
         tu = False
         fuel = '-'
@@ -164,6 +172,7 @@ def abort_detection():
         condition = '-'
         screenshot = pyautogui.screenshot()
         time_screen = screenshot.crop((473, 425, 872, 485))
+        # time_screen.save('timescree.png')
 
     if tu:
         try:
@@ -299,35 +308,22 @@ def alarm_extractor():
     return extracted_text
 
 def condition_extractor():
-
-    condition = None
-
     try:
-        pyautogui.locateOnScreen('images\\run.png')
-        condition = 'run'
+        if pyautogui.locateOnScreen('images\\run.png', region=(456,136, 600, 150)):
+            return 'run'
+
     except:
-        pass
+        try:
+            if pyautogui.locateOnScreen('images\\test.png', region=(456,136, 600, 150)):
+                return 'test'
+        except:
+            try:
+                if pyautogui.locateOnScreen('images\\stop.png', region=(456,136, 600, 150)):
+                    return 'stop'
+            except:
+                return 'auto'
 
-    try:
-        pyautogui.locateOnScreen('images\\stop.png')
-        condition = 'stop'
-    except:
-        pass
-
-    try:
-        pyautogui.locateOnScreen('images\\test.png')
-        condition = 'test'
-    except:
-        pass
-
-    if condition != 'test' or condition != 'stop' or condition != 'run':
-        condition = 'auto'
-    else:
-        pass
-
-    return condition
-
-def main():
+def main(send_m = True):
     df = create_df()
 
     #start vcom app
@@ -337,7 +333,7 @@ def main():
     vcom_window = pyautogui.getWindowsWithTitle('USR-VCOM Virtual Serial Port')[0]
     vcom_window.activate()
 
-    time.sleep(120)
+    time.sleep(120)#120
 
     pyautogui.keyDown('alt');
     pyautogui.keyDown('space');
@@ -359,7 +355,7 @@ def main():
 
     last_num = 1000
     data_file_text_ex = ''
-
+    #range(1,last_num)
     for i in range(1,last_num):
         last_com = com
         #clickebis raodenoba aka numeracia siashi
@@ -381,9 +377,9 @@ def main():
 
         # reportis view gamoaqvs
         press_show_button()
-        time.sleep(5)
-        screenshot = pyautogui.screenshot()
-        cropped_image = screenshot.crop((473, 425, 872, 485))
+        time.sleep(3)
+        # screenshot = pyautogui.screenshot()
+        # cropped_image = screenshot.crop((473, 425, 872, 485))
         if 'not' in con_status.lower():
             pass
         else:
@@ -395,24 +391,25 @@ def main():
                 n = 0
                 while n <= 10:
                     try:
-                        pyautogui.locateOnScreen(time_screen)
-                        time.sleep(3)
                         n += 1
+                        pyautogui.locateOnScreen(time_screen)#, region=(464,417,513,60)
+                        time.sleep(2)
                     except:
                         break
             else:
                 n = 0
                 while n <= 10:
                     try:
-                        pyautogui.locateOnScreen(prev_screen)
-                        time.sleep(3)
                         n += 1
+                        pyautogui.locateOnScreen(prev_screen)
+                        time.sleep(2)
+
                     except:
                         break
 
                 prev_screen = time_screen
 
-        time.sleep(2)
+        time.sleep(1)
 
         #reportis windows ro gaxsnis mere drois
         text = time_extractor()
@@ -421,11 +418,25 @@ def main():
         if text == prev_text:
             pass
         else:
-            volt = voltage_extractor()
-            city_v1, city_v2, city_v3 = city_volt_extractor()
-            generator_v1, generator_v2, generator_v3 = generator_volt_extractor()
-            alarm = alarm_extractor()
-            condition = condition_extractor()
+            # volt = voltage_extractor()
+            # city_v1, city_v2, city_v3 = city_volt_extractor()
+            # generator_v1, generator_v2, generator_v3 = generator_volt_extractor()
+            # alarm = alarm_extractor()
+            # condition = condition_extractor()
+            with ThreadPoolExecutor() as executor:
+                futures = [
+                    executor.submit(voltage_extractor),
+                    executor.submit(city_volt_extractor),
+                    executor.submit(generator_volt_extractor),
+                    executor.submit(alarm_extractor),
+                    executor.submit(condition_extractor)
+                ]
+                results = [future.result() for future in futures]
+            volt = results[0]
+            city_v1, city_v2, city_v3 = results[1]
+            generator_v1, generator_v2, generator_v3 = results[2]
+            alarm = results[3]
+            condition = results[4]
 
         if text == prev_text:
             fuel = '-'
@@ -463,28 +474,54 @@ def main():
 
         if com == last_com:
             close_program()
+            # comebi daiparseba da mijoindeba mtavard dfstan
+            com_df = com_parser()
+            com_df['COMName'] = com_df['COMName'].str.extract(r'(\d+)', expand=False)
+            com_df = com_df[['Remarks', 'COMName', 'RemoteIP']]
+
             today_date = datetime.now().strftime("%Y-%m-%d")
             filename = f"csvs/{data_file_text_ex}data_{today_date}.csv"
             df['COM'] = df['COM'].str.extract(r'(\d+)', expand=False)
             df['Time'] = df['Time'].apply(clean_time)
-            df.to_csv(filename, index=True)
 
+            df = pd.merge(df, com_df, left_on='COM', right_on='COMName', how='left')
+
+            df.to_csv(filename, index=True)
+            if send_m:
+                send_email('', '', f'Com Times Data: {today_date}', f'გიგზავნი {today_date}-ის მონაცემებს',
+                           filename, ['abluashvili@finex.ge'])
+            else:
+                pass
             break
         else:
             df.loc[len(df)] = [i, fuel, con_status, com, voltage, city_v1_text, city_v2_text, city_v3_text,generator_v1_text, generator_v2_text, generator_v3_text,alarm_text, condition_text]
             if i == last_num-1:
                 close_program()
+                #comebi daiparseba da mijoindeba mtavard dfstan
+                com_df = com_parser()
+                com_df['COMName'] = com_df['COMName'].str.extract(r'(\d+)', expand=False)
+                com_df = com_df[['Remarks', 'COMName', 'RemoteIP']]
+
                 df['COM'] = df['COM'].str.extract(r'(\d+)', expand=False)
                 df['Time'] = df['Time'].apply(clean_time)
+
+                df = pd.merge(df, com_df, left_on='COM', right_on='COMName', how='left')
+
                 today_date = datetime.now().strftime("%Y-%m-%d")
                 filename = f"csvs/{data_file_text_ex}data_{today_date}.csv"
                 df.to_csv(filename, index=True)
+
+                if send_m:
+                    send_email('', '', f'Modem Data: {today_date}', f'გიგზავნი {today_date}-ის მონაცემებს',
+                               filename, ['abluashvili@finex.ge'])
+                else:
+                    pass
             else:
                 continue
 
 if __name__ == "__main__":
     start_time = time.time()
-    main()
+    main(send_m=True)
     end_time = time.time()
     time_exc = end_time-start_time
     print(time_exc)
